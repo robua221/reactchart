@@ -12,6 +12,7 @@ import {
   Td,
   FormControl,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import React, { useMemo, useState } from "react";
 import { useCSVReader } from "react-papaparse";
 import { useTable, useSortBy } from "react-table";
@@ -41,7 +42,7 @@ const styles = {
 const Csv = () => {
   const submithandler = (e) => {
     e.preventDefault();
-  }
+  };
   const [columnData, setColumnData] = useState([]);
   const [rowData, setRowData] = useState([]);
   const columns = useMemo(() => columnData, [columnData]);
@@ -96,6 +97,9 @@ const Csv = () => {
                 <Button {...getRemoveFileProps()} style={styles.remove}>
                   Remove
                 </Button>
+                <Link to="/">
+                  <Button>BACK</Button>
+                </Link>
               </Stack>
 
               <div style={styles.acceptedFile}></div>
