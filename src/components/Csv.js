@@ -2,11 +2,13 @@ import {
   Heading,
   Button,
   Stack,
+  ButtonGroup,
   Box,
   Table,
   Thead,
   Tbody,
   Tfoot,
+  Flex,
   Tr,
   Th,
   Td,
@@ -80,26 +82,40 @@ const Csv = () => {
         {({ getRootProps, acceptedFile, ProgressBar, getRemoveFileProps }) => (
           <>
             <div style={styles.csvReader}>
-              <Stack direction={["column", "row"]} spacing="24px" margin="10">
+              <Stack 
+                direction={["column", "row"]}
+                spacing="90"
+                align="center"
+                margin="20"
+              >
                 <Box>
                   <Button
+                    colorScheme="teal"
+                    variant="solid"
                     type="button"
                     {...getRootProps()}
-                    style={styles.browseFile}
                   >
                     Browse file
                   </Button>
                 </Box>
-                <Box width="80%" border="2px solid #ccc">
+                <Box width="80%" border="1px solid #ccc">
                   {acceptedFile && acceptedFile.name}
                 </Box>
-
-                <Button {...getRemoveFileProps()} style={styles.remove}>
-                  Remove
-                </Button>
-                <Link to="/">
-                  <Button>BACK</Button>
-                </Link>
+                <Box>
+                  <Button
+                    colorScheme="teal"
+                    variant="solid"
+                    {...getRemoveFileProps()}
+                    type="button"
+                  >
+                    Remove
+                  </Button>
+                </Box>
+                <Box>
+                  <Link to="/">
+                    <Button>BACK</Button>
+                  </Link>
+                </Box>
               </Stack>
 
               <div style={styles.acceptedFile}></div>
